@@ -68,6 +68,30 @@ app.use("/", (req: any, res: any, next: any) => {
 });
 
 // 5. Controllo degli accessi tramite CORS
+const whitelist = [
+    "http://corneanugeorgealexandru-crudserver.onrender.com",	// porta 80 (default)
+    "https://corneanugeorgealexandru-crudserver.onrender.com",	// porta 443 (default)
+    "http://localhost:3000",
+    "https://localhost:3001",
+    "http://localhost:4200" // server angular
+];
+// Procedura che utilizza la whitelist, accetta solo le richieste presenti nella whitelist
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin) // browser direct call
+            return callback(null, true);
+        if (whitelist.indexOf(origin) === -1) {
+            var msg = `The CORS policy for this site does not allow access from the specified Origin.`
+            return callback(new Error(msg), false);
+        }
+        else
+            return callback(null, true);
+    },
+    credentials: true
+};
+app.use("/", _cors(corsOptions));
+// Procedura che lascia passare tutto, accetta tutte le richieste
+/*
 const corsOptions = {
     origin: function (origin, callback) {
         return callback(null, true);
@@ -75,6 +99,7 @@ const corsOptions = {
     credentials: true
 };
 app.use("/", _cors(corsOptions));
+*/
 
 //********************************************************************************************//
 // Routes finali di risposta al client
