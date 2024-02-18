@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "brand": "Toyota",
+        "model": "Camry",
+        "year": 2020,
+        "price": 25000,
+        "image": "https://images.ctfassets.net/uaddx06iwzdz/6izQLC6tZAzCm0HuV3LTR2/6c09de109fcabced3a99659fdcff3079/Toyota-Camry-2018-1600-09.jpg"
+    },
+    {
+        "id": 2,
+        "brand": "Honda",
+        "model": "Civic",
+        "year": 2019,
+        "price": 22000,
+        "image": "https://www.honda.it/content/dam/central/cars/civic-hybrid/overview-v3/Honda-civic-hybrid-01-1x1-mobile.jpg/_jcr_content/renditions/m_r.jpg"
+    },
+    {
+        "id": 3,
+        "brand": "Ford",
+        "model": "Escape",
+        "year": 2021,
+        "price": 28000,
+        "image": "https://cdn.motor1.com/images/mgl/0eJgPp/s1/2023-ford-escape-st-line-elite.jpg"
+    },
+    {
+        "id": 4,
+        "brand": "Toyota",
+        "model": "Corolla",
+        "year": 2022,
+        "price": 23000,
+        "image": "https://www.corriere.it/methode_image/2023/01/03/Motori/Foto%20Motori%20-%20Trattate/toyota-corolla-2023_16-cf-cropped-37-0-566-427-k2uC-U33901563834536aU-593x443@Corriere-Web-Sezioni.jpg"
+    },
+    {
+        "id": 5,
+        "brand": "Honda",
+        "model": "Accord",
+        "year": 2020,
+        "price": 27000,
+        "image": "https://www.autoscout24.it/cms-content-assets/4tb4M3HkQ3yoHjpnkQGLQH-577d9f50f2907b3198dc89cc22682eca-honda-accord-front-1100.jpg"
+    },
+    {
+        "id": 6,
+        "brand": "Ford",
+        "model": "Explorer",
+        "year": 2018,
+        "price": 32000,
+        "image": "https://cdn-redergo.avrean.net/?url=https://topgear-prod-cms.avrean.net/sites/default/files/2023-03/Ford-Explorer-EV-2024-5_0.jpg"
+    },
+    {
+        "id": 7,
+        "brand": "Toyota",
+        "model": "RAV4",
+        "year": 2019,
+        "price": 26000,
+        "image": "https://content.presspage.com/uploads/1523/1920_2022-rav4-hybrid-grs-ext-006-3.jpg?10000"
+    },
+    {
+        "id": 8,
+        "brand": "Honda",
+        "model": "Pilot",
+        "year": 2021,
+        "price": 31000,
+        "image": "https://media.ed.edmunds-media.com/honda/pilot/2023/oem/2023_honda_pilot_4dr-suv_elite_fq_oem_1_1600.jpg"
+    },
+    {
+        "id": 9,
+        "brand": "Ford",
+        "model": "Fusion",
+        "year": 2020,
+        "price": 24000,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/Ford_Fusion_%282002%E2%80%932005%29_front_MJ.JPG"
+    },
+    {
+        "id": 10,
+        "brand": "Toyota",
+        "model": "Highlander",
+        "year": 2022,
+        "price": 34000,
+        "image": "https://images.ctfassets.net/uaddx06iwzdz/7lZcVxXn8RJ18qMC0u2Qkd/1379af0f583ba8133ba609fad39037a2/toyota-highlander-l-03-1100.jpg"
+    }
+]
