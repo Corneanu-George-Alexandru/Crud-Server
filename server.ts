@@ -68,6 +68,7 @@ app.use("/", (req: any, res: any, next: any) => {
 });
 
 // 5. Controllo degli accessi tramite CORS
+/*
 const whitelist = [
     "http://corneanugeorgealexandru-crudserver.onrender.com",	// porta 80 (default)
     "https://corneanugeorgealexandru-crudserver.onrender.com",	// porta 443 (default)
@@ -91,9 +92,9 @@ const corsOptions = {
     },
     credentials: true
 };
+*/
 app.use("/", _cors(corsOptions));
 // Procedura che lascia passare tutto, accetta tutte le richieste
-/*
 const corsOptions = {
     origin: function (origin, callback) {
         return callback(null, true);
@@ -101,7 +102,6 @@ const corsOptions = {
     credentials: true
 };
 app.use("/", _cors(corsOptions));
-*/
 
 //********************************************************************************************//
 // Routes finali di risposta al client
