@@ -73,7 +73,9 @@ const whitelist = [
     "https://corneanugeorgealexandru-crudserver.onrender.com",	// porta 443 (default)
     "http://localhost:3000",
     "https://localhost:3001",
-    "http://localhost:4200" // server angular
+    "http://localhost:4200", // server angular
+	"https://profoscar-myrecipes-2024.web.app/recipes",
+	"https://corneanu-myrecipes-2024.web.app/recipes"
 ];
 // Procedura che utilizza la whitelist, accetta solo le richieste presenti nella whitelist
 const corsOptions = {
