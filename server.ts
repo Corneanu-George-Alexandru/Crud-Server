@@ -74,8 +74,8 @@ const whitelist = [
     "http://localhost:3000",
     "https://localhost:3001",
     "http://localhost:4200", // server angular
-	"https://profoscar-myrecipes-2024.web.app/recipes",
-	"https://corneanu-myrecipes-2024.web.app/recipes"
+	"https://profoscar-myrecipes-2024.web.app",
+	"https://corneanu-myrecipes-2024.web.app"
 ];
 // Procedura che utilizza la whitelist, accetta solo le richieste presenti nella whitelist
 const corsOptions = {
