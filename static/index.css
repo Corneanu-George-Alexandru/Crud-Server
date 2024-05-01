@@ -1,105 +1,163 @@
-#divIntestazione {
-    border: 1px solid #ccc;
-    margin: 10px 2px;
-    padding: 10px 5px;
-    font-style: italic;
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#divCollections {
-    color: white;
-    padding: 15px 0px 12px 10px;
-    font-size: 12pt;
-    user-select: none;
+a {
+    text-decoration: none;
 }
 
-#divDettagli {
-    border: 1px solid #dfdfdf;
-    width: 90%;
-    font-size: 10pt;
-    padding-top: 15px;
+li {
+    list-style: none;
 }
 
-#divDettagli textarea {
-    border: none;
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
     width: 100%;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 11pt;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: white;
 }
 
-#divDettagli button:nth-of-type(2) {
-    margin-left: 15px;
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
 }
 
-
-/* *************************** */
-#mainTable {
-    font-size: 10pt;
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
 }
 
-#mainTable tbody tr td:last-of-type {
-    text-align: right;
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
 }
 
-#mainTable tbody tr td:last-of-type div {
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: white;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .1);
+    border-left: 3px solid white;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: black;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin: 2px;
-    background-image: url(img/icons.png);
-    /* fa in modo che l'immagine non debordi nel padding */
-    background-origin: content-box;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
 }
 
-#mainTable tbody tr td:last-of-type div:nth-of-type(1) {
-    /* 1°=horizonal,  2°=vertical */
-    /* 16*4=64,    16*7=112px*/
-    background-position: -64px -112px;
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
 }
 
-#mainTable tbody tr td:last-of-type div:nth-of-type(2) {
-    /* 1°=horizonal,  2°=vertical */
-    /* 16*15=240,    16*6=96px*/
-    background-position: -240px -96px;
+.container {
+    margin-top: 2rem;
 }
 
-#mainTable tbody tr td:last-of-type div:nth-of-type(3) {
-    /* 1°=horizonal,  2°=vertical */
-    /* 16*11=176,    16*6=96px*/
-    background-position: -176px -96px;
+#previewImgContainer {
+    width: 100%;
+    text-align: center;
 }
 
-/* *************************** */
-
-#mainTable tbody tr td:not(:last-child):hover {
-    cursor: pointer;
+#btnCreaUtente {
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    border: none;
 }
 
-#mainTable tbody tr td div:hover {
-    cursor: pointer;
-}
-
-
-
-/* terminale xs < 576 */
-@media (max-width:576px) {
-    #divHair {
-        text-align: left !important;
-    }
-
-    #mainTable tbody tr td {
-        font-size: 9pt;
-        /* riduciamo anche il padding, soprattutto quello verticale */
-        padding: 4px;
-    }
-
-    #mainTable tbody tr td:first-of-type {
-        font-size: 8pt;
-        /* riportiamo a 12 il paddind-right della prima cella       */
-        padding-right: 12px;
-    }
-
-    #divCollections {
-        padding: 10px 0px 8px 10px;
-        font-size: 10pt;
-    }
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
