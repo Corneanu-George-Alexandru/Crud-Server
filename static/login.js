@@ -77,7 +77,8 @@ $(document).ready(function () {
 				{
 					"username": _username.val(),
 					"password": _password.val(),
-					"isAdminAccess": true
+					"isAdminAccess": true,
+					"skipCheckToken": true
 				}
 			);
 			rq.catch(function (err) {
