@@ -1,4 +1,4 @@
-import _https from "https";
+import _http from "http";
 import _url from "url";
 import _fs from "fs";
 import _express from "express";
@@ -27,18 +27,15 @@ import { MongoClient, ObjectId } from "mongodb";
 const DBNAME = process.env.DBNAME;
 const connectionString: string = process.env.connectionStringAtlas;
 const app = _express();
-
-// Creazione ed avvio del server https, a questo server occorre passare le chiavi RSA (pubblica e privata)
-const HTTPS_PORT: number = parseInt(process.env.HTTPS_PORT);
-let paginaErrore;
-const PRIVATE_KEY = _fs.readFileSync("./keys/privateKey.pem", "utf8");
-const CERTIFICATE = _fs.readFileSync("./keys/certificate.crt", "utf8");
 const ENCRYPTION_KEY = _fs.readFileSync("./keys/encryptionKey.txt", "utf8");
-const CREDENTIALS = { "key": PRIVATE_KEY, "cert": CERTIFICATE };
-const https_server = _https.createServer(CREDENTIALS, app);
-https_server.listen(HTTPS_PORT, () => {
+
+// Creazione ed avvio del server
+const PORT: number = parseInt(process.env.HTTP_PORT);
+let paginaErrore;
+const server = _http.createServer(app);
+server.listen(PORT, () => {
     init();
-    console.log(`Server HTTPS in ascolto sulla porta ${HTTPS_PORT}`);
+    console.log(`Il Server è in ascolto sulla porta ${PORT}`);
 });
 
 function init() {
