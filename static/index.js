@@ -229,7 +229,7 @@ $(document).ready(async function () {
 		$("#btnModifica").prop("disabled", true);
 		let rq = inviaRichiesta("GET", "/api/getOperatoreById", { "_id": perizia.codiceOperatore });
 		rq.catch(errore);
-		rq.then((response) => {
+		rq.then(async (response) => {
 			$("#operatore").val(response.data.username);
 			$("#data").val(new Date(perizia.dataPerizia).toLocaleDateString());
 			$("#descrizione").val(perizia.descrizione).on("keyup", () => {
@@ -423,7 +423,7 @@ $(document).ready(async function () {
 		$("<input>").prop("type", "text").prop("id", "changePwdUsername").appendTo(content);
 		$("<br>").appendTo(content);
 		$("<br>").appendTo(content);
-		$("<label>").html("Password:&nbsp").appendTo(content);
+		$("<label>").html("Nuova Password:&nbsp").appendTo(content);
 		$("<input>").prop("type", "password").prop("id", "changePwdPassword").appendTo(content);
 		Swal.fire({
 			"icon": "question",
@@ -437,7 +437,7 @@ $(document).ready(async function () {
 				if ($("#changePwdUsername").val() != "" && $("#changePwdPassword").val() != "") {
 					let aus = {
 						"username": $("#changePwdUsername").val(),
-						"password": $("#changePwdPassword").val()
+						"nuovaPassword": $("#changePwdPassword").val()
 					}
 					let rq = inviaRichiesta("PATCH", "/api/changePassword", aus);
 					rq.catch(errore);

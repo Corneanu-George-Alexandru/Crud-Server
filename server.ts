@@ -228,12 +228,35 @@ app.patch("/api/updatePerizia", async (req, res, next) => {
     rq.finally(() => client.close());
 });
 
+app.post("/api/insertNewPerizia", async (req, res, next) => {
+    let newPerizia = req["body"];
+    newPerizia["codiceOperatore"] = new ObjectId(newPerizia["codiceOperatore"]);
+    const client = new MongoClient(connectionString);
+    await client.connect();
+    let collection = client.db(DBNAME).collection("perizie");
+    let rq = collection.insertOne(newPerizia);
+    rq.then((data) => res.send(data));
+    rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
+    rq.finally(() => client.close());
+});
+
 app.get("/api/getOperatoreById", async (req, res, next) => {
     let _id = new ObjectId(req["query"]._id);
     const client = new MongoClient(connectionString);
     await client.connect();
     let collection = client.db(DBNAME).collection("utenti");
     let rq = collection.findOne({ "_id": _id }, { "projection": { "username": 1 } });
+    rq.then((data) => res.send(data));
+    rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
+    rq.finally(() => client.close());
+});
+
+app.get("/api/getCurrentUserData", async (req, res, next) => {
+    let username = req["query"].username;
+    const client = new MongoClient(connectionString);
+    await client.connect();
+    let collection = client.db(DBNAME).collection("utenti");
+    let rq = collection.findOne({ "username": username });
     rq.then((data) => res.send(data));
     rq.catch((err) => res.status(500).send(`Errore esecuzione query: ${err}`));
     rq.finally(() => client.close());
@@ -305,7 +328,7 @@ app.patch("/api/changePassword", async (req, res, next) => {
     const client = new MongoClient(connectionString);
     await client.connect();
     let collection = client.db(DBNAME).collection("utenti");
-    let rq = collection.updateOne({ "username": aus.username }, { "$set": { "password": _bcrypt.hashSync(aus.password, 10), "passwordInChiaro": aus.password } });
+    let rq = collection.updateOne({ "username": aus.username }, { "$set": { "password": _bcrypt.hashSync(aus.nuovaPassword, 10), "passwordInChiaro": aus.nuovaPassword } });
     rq.then((data) => {
         if (data.matchedCount != 0) {
             res.send(data);
