@@ -130,6 +130,6 @@ dist
 .pnp.*
 
 # Private Keys
+environment.*
 Atlas.txt
 keys/
-.env
