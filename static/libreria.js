@@ -1,22 +1,7 @@
 "use strict";
+
 const _URL = "" 
 // Se vuota viene assegnata in automatico l'origine da cui è stata scaricata la pagina
-
-axios.interceptors.request.use((config)=>{
-	let token=localStorage.getItem("token")
-	if(token)
-	{
-		console.log("Token sent: "+token)
-		config.headers["authorization"]=token
-	}
-	return config
-})
-axios.interceptors.response.use((response)=>{
-	let token=response.headers["authorization"]
-	console.log("Token received: "+token)
-	localStorage.setItem("token",token)
-	return response
-})
 
 function inviaRichiesta(method, url, parameters={}) {
 	let config={

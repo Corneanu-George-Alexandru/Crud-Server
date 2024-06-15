@@ -1,2 +1,3 @@
-# CRUD_server
-Repository for CRUD server development
+_Corneanu George Alexandru_
+
+### Progetto riguardante la realizzazione di un Crud Server
