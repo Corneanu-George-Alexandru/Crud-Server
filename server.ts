@@ -42,7 +42,8 @@ let paginaErrore;
 // const CREDENTIALS = { "key": PRIVATE_KEY, "cert": CERTIFICATE };
 const http_server = _http.createServer(app)
 // const https_server = _https.createServer(CREDENTIALS, app);
-const ENCRYPTION_KEY = _fs.readFileSync("./keys/encryptionKey.txt", "utf8")
+// const ENCRYPTION_KEY = _fs.readFileSync("./keys/encryptionKey.txt", "utf8")
+const ENCRYPTION_KEY = "n0JFvIVKLpv1mAMhrItgdxmwZ0A0Ikjm"
 const io= new Server(http_server, {
     cors: {
       origin: "*",
