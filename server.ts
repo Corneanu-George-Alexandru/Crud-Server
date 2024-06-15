@@ -37,11 +37,11 @@ const app = _express();
 const HTTPS_PORT: number = parseInt(process.env.HTTPS_PORT);
 const HTTP_PORT: number = parseInt(process.env.HTTP_PORT);
 let paginaErrore;
-const PRIVATE_KEY = _fs.readFileSync("./keys/privateKey.pem", "utf8");
-const CERTIFICATE = _fs.readFileSync("./keys/certificate.crt", "utf8");
-const CREDENTIALS = { "key": PRIVATE_KEY, "cert": CERTIFICATE };
+// const PRIVATE_KEY = _fs.readFileSync("./keys/privateKey.pem", "utf8");
+// const CERTIFICATE = _fs.readFileSync("./keys/certificate.crt", "utf8");
+// const CREDENTIALS = { "key": PRIVATE_KEY, "cert": CERTIFICATE };
 const http_server = _http.createServer(app)
-const https_server = _https.createServer(CREDENTIALS, app);
+// const https_server = _https.createServer(CREDENTIALS, app);
 const ENCRYPTION_KEY = _fs.readFileSync("./keys/encryptionKey.txt", "utf8")
 const io= new Server(http_server, {
     cors: {
@@ -51,10 +51,10 @@ const io= new Server(http_server, {
   });
 
 // Il secondo parametro facoltativo ipAddress consente di mettere il server in ascolto su una delle interfacce della macchina, se non lo metto viene messo in ascolto su tutte le interfacce (3 --> loopback e 2 di rete)
-https_server.listen(HTTPS_PORT, () => {
-    init();
-    console.log(`Server HTTPS in ascolto sulla porta ${HTTPS_PORT}`);
-});
+// https_server.listen(HTTPS_PORT, () => {
+//     init();
+//     console.log(`Server HTTPS in ascolto sulla porta ${HTTPS_PORT}`);
+// });
 http_server.listen(HTTP_PORT, () => {
     console.log("Server HTTP in ascolto sulla porta " + HTTP_PORT)
 })
